@@ -122,7 +122,7 @@ async function startGame(diff){
   state.difficulty=diff;await loadQuestions();
   const pool=allQuestions.filter(q=>q.class===state.classNo&&String(q.subject).toLowerCase()===state.subject&&topicKey(q.topic)===topicKey(state.topic)&&(diff==='mixed'||q.difficulty===diff));
   if(!pool.length){alert('No questions found for this selection.');return;}
-  const requested=Number(settings.game.questionsPerGame)||10;
+  const requested=Number(settings.game.questionsPerGame)||24;
   const s={questions:shuffle(pool).slice(0,Math.min(requested,pool.length)),index:0,score:0,lives:settings.game.enableLives?settings.game.startingLives:999,streak:0,bestStreak:0,correct:0,answers:0,state:{...state},settings,poolSize:pool.length,requested};
   renderGame(s);
 }
