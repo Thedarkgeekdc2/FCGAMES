@@ -162,6 +162,26 @@
 [data-theme="simple"] .result-actions #home{box-shadow:none;}
 .result-actions #home:hover{background:var(--paper-tint);}
 
+/* ---- utility ---- */
+.hidden{display:none !important;}
+
+/* ---- pause overlay ---- */
+.pause-overlay{
+  position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+  background:rgba(20,16,12,.55);backdrop-filter:blur(2px);padding:20px;
+}
+.pause-card{
+  background:var(--surface);border:var(--border-w) solid var(--line);border-radius:var(--r-tile);
+  box-shadow:6px 6px 0 var(--shadow-col);padding:32px 28px;max-width:360px;width:100%;text-align:center;
+}
+[data-theme="simple"] .pause-card{box-shadow:none;}
+.pause-icon{font-size:48px;line-height:1;margin-bottom:8px;}
+.pause-card h2{margin:0 0 8px;font-family:var(--font-display);font-size:24px;}
+.pause-card p{margin:0 0 20px;color:var(--ink-soft);font-size:14px;}
+.pause-actions{display:flex;flex-direction:column;gap:10px;}
+.pause-actions .primary-btn,.pause-actions .secondary-btn{width:100%;justify-content:center;}
+#pause-btn:disabled{opacity:.6;cursor:not-allowed;}
+
 @media (max-width:640px){
   .match-grid{grid-template-columns:1fr;}
   .options{grid-template-columns:1fr 1fr;}
