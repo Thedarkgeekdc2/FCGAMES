@@ -326,11 +326,14 @@ main#app{
    single line (no wrap) — on very narrow screens it scrolls horizontally
    inside the pill instead of breaking onto a second line. */
 
-#footer{
-  position:fixed;
-  left:50%;
-  bottom:max(10px,env(safe-area-inset-bottom));
-  transform:translateX(-50%);
+footer#footer{
+  position:fixed !important;
+  left:50% !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:max(10px,env(safe-area-inset-bottom)) !important;
+  transform:translateX(-50%) !important;
+  margin:0 !important;
   z-index:999;
   width:auto;
   max-width:calc(100% - 24px);
@@ -353,7 +356,7 @@ main#app{
   font-size:12px;
   line-height:1.35;
 }
-#footer::-webkit-scrollbar{display:none;}
+footer#footer::-webkit-scrollbar{display:none;}
 
 .footer-message{display:none;}
 
@@ -418,8 +421,8 @@ main#app{
 
   main#app{padding-top:8px;}
 
-  #footer{
-    bottom:max(8px,env(safe-area-inset-bottom));
+  footer#footer{
+    bottom:max(8px,env(safe-area-inset-bottom)) !important;
     max-width:calc(100% - 16px);
     padding:7px 12px;
     border-radius:22px;
@@ -549,9 +552,9 @@ main#app{
     aria-label="THE DARK GEEK DC website"
   >THEDARKGEEKDC</a>
 
-  
+  <span class="footer-separator" aria-hidden="true">•</span>
 
-  <span id="footerCopyright" class="footer-copy"> 2026 PM SHRI KENDRIYA VIDYALAYA No. 2 KHARAGPUR</span>
+  <span id="footerCopyright" class="footer-copy">© 2026 PM SHRI KENDRIYA VIDYALAYA No. 2 KHARAGPUR</span>
 
 </footer>
 
