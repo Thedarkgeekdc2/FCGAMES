@@ -1,252 +1,395 @@
-# Flashcard Champ
+<div align="center">
 
-A colourful, tap-to-answer flashcard game for primary-school students (currently
-Class 3–4, Maths and Hindi), with a full browser-based Admin Panel for teachers
-to add questions, manage topics, and customise branding — no server or
-database required. It runs as plain static files, so it can be hosted for
-free on GitHub Pages.
+# 🏆 Flashcard Champ
+
+### 🎮 Learn • Play • Practise • Grow!
+
+**A fun, interactive learning platform that turns everyday classroom practice into an engaging game for primary-school learners.**
+
+<img src="assets/icons/logo.svg" alt="Flashcard Champ logo" width="150" />
+
+<br />
+
+![Classes](https://img.shields.io/badge/Classes-1%E2%80%935-6C63FF?style=for-the-badge)
+![Topics](https://img.shields.io/badge/Topics-43-00A896?style=for-the-badge)
+![Questions](https://img.shields.io/badge/Questions-1%2C821-FF8C42?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Web-2684FF?style=for-the-badge)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=222222)
+![JSON](https://img.shields.io/badge/Data-JSON-292929?style=flat-square&logo=json&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
+
+**Designed for young learners | Built with simple web technologies | Teacher-friendly content management**
+
+</div>
 
 ---
 
-## Contents
-1. [Quick start (run it locally)](#quick-start-run-it-locally)
-2. [Deploying to GitHub Pages](#deploying-to-github-pages)
-3. [Using the app — students](#using-the-app--students)
-4. [Using the Admin Panel — teachers](#using-the-admin-panel--teachers)
-5. [Question JSON format reference](#question-json-format-reference)
-6. [Important things to know](#important-things-to-know)
-7. [Project structure](#project-structure)
-8. [Development history](#development-history)
+## 🌟 What is Flashcard Champ?
+
+Flashcard Champ is a browser-based educational game for **Classes 1–5**. It helps children practise concepts through colourful, interactive questions instead of routine question-answer practice.
+
+Learners follow a simple journey:
+
+<div align="center">
+
+**🏫 Choose Class** &nbsp; ➜ &nbsp; **📚 Select Subject** &nbsp; ➜ &nbsp; **🧩 Pick Topic** &nbsp; ➜ &nbsp; **🎯 Choose Difficulty** &nbsp; ➜ &nbsp; **🚀 Play!**
+
+</div>
+
+Students can answer by tapping, matching, arranging, dragging and identifying pictures. Teachers can use the built-in **Admin Panel** to create and manage learning content and customise the classroom experience.
 
 ---
 
-## Quick start (run it locally)
-This is a static site — no build step, no install. From this folder, run:
+## ✨ Key Features
 
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🎮 For Students
+
+- 🧠 Interactive, tap-to-answer questions
+- 🎲 Multiple question and activity formats
+- 🏅 Points, lives, timer and streaks
+- 🔊 Sound feedback and result summaries
+- 🔀 Shuffled questions and answer choices
+- 🖼️ Picture-based learning activities
+- 🌐 Hindi and English question content
+- 📱 Responsive layout for phones, tablets, laptops and interactive panels
+
+</td>
+<td width="50%" valign="top">
+
+### 🧑‍🏫 For Teachers
+
+- ✍️ Visual Question Builder with live preview
+- 📚 Question Library with search and filters
+- 🏫 Class and Subject Manager
+- 🗂️ Topic Manager
+- 🖼️ Image browser and local image preview
+- 🎨 School branding, theme and game settings
+- 📥 Import and 📤 Export question data
+- 💾 Backup and Restore local Admin data
+- 📖 Built-in Help guide
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🧩 Supported Question Types
+
+Flashcard Champ currently supports **11 question formats**:
+
+| # | Activity | # | Activity |
+|---:|---|---:|---|
+| 1 | ✅ Multiple Choice (MCQ) | 7 | 🔢 Arrange in Order |
+| 2 | 🎯 Choose the Answer | 8 | 🧲 Drag & Drop |
+| 3 | ✔️ True or False | 9 | 🖼️ Image Based |
+| 4 | 👍 Yes or No | 10 | 🌄 Image MCQ |
+| 5 | 🕵️ Odd One Out | 11 | 👀 Identify the Picture |
+| 6 | 🔗 Match the Pairs |  |  |
+
+See [`sample-all-question-types.json`](sample-all-question-types.json) for examples of the supported formats.
+
+---
+
+## 📊 Current Question Bank
+
+The current project archive includes **43 topics and 1,821 questions**, listed in `data/manifest.json`.
+
+| Class | Number of Questions |
+|:---:|---:|
+| Class 1 | 304 |
+| Class 2 | 300 |
+| Class 3 | 596 |
+| Class 4 | 521 |
+| Class 5 | 100 |
+| **Total** | **1,821** |
+
+> ℹ️ The available subjects and topics may differ from class to class. The app displays the content available in the bundled question bank and locally added catalogue. Check `data/manifest.json` for the exact topic list.
+
+---
+
+## 🚀 Run Flashcard Champ Locally
+
+Flashcard Champ is a **static web project**. No npm installation or build command is needed for normal use.
+
+### 1️⃣ Get the project
+
+Download the repository or clone it:
+
+```bash
+git clone <repository-url>
+cd <project-folder>
 ```
+
+### 2️⃣ Start a local web server
+
+Run this command from the folder containing `index.html`:
+
+```bash
 python -m http.server 8000
 ```
 
-Then open **http://127.0.0.1:8000/** in a browser.
+### 3️⃣ Open in your browser
 
-(A plain double-click on `index.html` will *not* work fully — some browsers
-block module/script loading from the `file://` protocol. Always use a local
-server, even a simple one like the command above.)
+Visit:
 
----
+```text
+http://127.0.0.1:8000/
+```
 
-## Deploying to GitHub Pages
-1. Push this project's contents to a GitHub repository — the whole folder,
-   including the hidden `.nojekyll` file.
-2. In the repo, go to **Settings → Pages**, set **Source** to the branch you
-   pushed (e.g. `main`) and the root folder, then save.
-3. Your site publishes at `https://<username>.github.io/<repo-name>/` (or
-   `https://<username>.github.io/` for a user/organization page). Every asset
-   in this project uses a relative path, so it works the same at either kind
-   of address — nothing to configure.
-4. There is no offline service worker, so every visit loads the latest
-   deployed files directly — no stale cache to worry about after you push an
-   update.
+> 💡 **Important:** Use a local web server instead of opening `index.html` directly with `file://`. The app loads JSON data using the browser's `fetch` function, which may be blocked when opening files directly.
 
 ---
 
-## Using the app — students
-1. Open the site → pick a **Class** → pick a **Subject** → pick a **Topic**
-   → pick a **Difficulty**.
-2. Answer each flashcard by tapping — no typing is required anywhere in the
-   game.
-3. At the end, a results screen shows the score, and the student can play
-   again or pick a new topic.
+## 🌐 Publish on GitHub Pages
+
+You can host Flashcard Champ as a static website using GitHub Pages.
+
+1. Create or open the GitHub repository for Flashcard Champ.
+2. Upload the **contents of the `FC/` project folder** to the repository root. Files and folders such as `index.html`, `admin/`, `data/`, `js/`, `styles/` and `.nojekyll` should be at the top level.
+3. Commit and push the files to your selected branch, such as `main`.
+4. Open **Settings → Pages** in your repository.
+5. Under **Build and deployment**, select **Deploy from a branch**.
+6. Select your branch and choose `/(root)` as the folder, then save.
+7. Open the website URL provided by GitHub Pages.
+
+> ✅ Keep the `.nojekyll` file in the repository root. The project uses relative asset paths and can be hosted as a GitHub Pages project site or a user/organisation site.
 
 ---
 
-## Using the Admin Panel — teachers
+## 🧑‍🏫 Teacher Admin Panel
 
-Go to `admin/login.html` (linked from the game footer). Default login:
+Open the published website and select **Admin**, or visit:
 
-| Field | Default value |
+```text
+/admin/login.html
+```
+
+After signing in, use the Dashboard to access the available management tools. The in-app **Help** page provides guidance for common tasks.
+
+### 🛠️ Admin Tools at a Glance
+
+| Tool | What you can do |
 |---|---|
-| Username | `admin` |
-| Password | `KV2KGP` |
+| ✍️ Question Builder | Create questions using a visual form and preview them on the student side. |
+| 📚 Question Library | Search, filter, edit and delete questions. |
+| 🏫 Classes & Subjects | Manage the classes and subjects shown in the app. |
+| 🗂️ Topic Manager | Add and manage topics under each class and subject. |
+| 🖼️ Images | Browse question images, check paths and preview a local image. |
+| 🎨 Settings | Customise school branding, footer text, theme and game rules. |
+| 📦 Import / Export | Import question JSON and export teacher-created questions. |
+| 💾 Backup / Restore | Download a backup of local Admin data and restore it when required. |
+| 📖 Help | Read the in-app guide. |
 
-**Change this password** — it's stored in plain text in
-`config/admin-config.json`, which is a public file on a static site (anyone
-who opens their browser's dev tools can read it). This is fine for
-classroom-level "don't let students poke around" protection, but it is
-**not** real security — there's no backend to enforce anything stronger on a
-free static host. To change it, edit `adminPassword` in
-`config/admin-config.json` and push the change.
+### 🔐 Important Security Notice
 
-Once logged in, the **Dashboard** links to every tool:
+Flashcard Champ is a **client-side static website**. The Admin login is a basic classroom-level access barrier; it is **not secure authentication**. Credentials are checked in browser-side code using the public configuration file `config/admin-config.json`, which visitors can inspect. Changing the password does not make it server-secured.
 
-- **Question Builder** — create or edit a question of any supported type,
-  with a live preview. See the [format reference](#question-json-format-reference)
-  below for what each type needs.
-- **Question Library** — search, filter, edit, or delete questions (built-in
-  and custom). Shows a 🖼️ badge on any question that has an image attached.
-- **Classes & Subjects (Catalog)** — add new classes/subjects so they appear
-  in the Builder and in the student pickers.
-- **Topics** — add or remove topics per class/subject.
-- **Images** — every image currently used by a question, with a broken-link
-  check and a one-tap "copy path" button, plus the curated asset library from
-  `data/media-manifest.json`. Since this is a static site there's no upload
-  button that saves anywhere — add new image files into
-  `assets/images/<subject>/<folder>/` yourself (via GitHub or your editor),
-  then reference that path. A small preview tool lets you check an image
-  from your own device and get a suggested path first.
-- **Settings** — school name, footer text, theme, and game rules (questions
-  per game, lives, timer, points, streaks). See the caveat below.
-- **Data Tools** — Import a questions JSON file, Export your custom
-  questions, or take a full Backup/Restore. See the caveat below.
+- Do not use this login to protect confidential information.
+- Do not store sensitive student or personal data in this project.
+- A genuinely secure teacher login requires a trusted backend or authentication service.
 
 ---
 
-## Question JSON format reference
-Every topic file (built-in or imported) looks like this:
+## ➕ Add a New Question Topic
+
+Question files are organised by class and subject:
+
+```text
+data/
+├── class-1/
+│   ├── hindi/
+│   ├── english/
+│   ├── maths/
+│   └── gk/
+├── class-2/
+├── class-3/
+├── class-4/
+├── class-5/
+└── manifest.json
+```
+
+### 📝 Step 1 — Create a question file
+
+Create a `.json` file inside the correct class and subject folder. Example:
+
+```text
+data/class-3/maths/multiplication-practice.json
+```
+
+### 🧾 Step 2 — Add the question data
+
+Use the required class, subject, topic and question structure. For example:
 
 ```json
 {
   "class": 3,
-  "subject": "maths",
-  "topic": "Addition",
-  "questions": [ /* one object per question, shapes below */ ]
+  "subject": "Maths",
+  "topic": "Multiplication Practice",
+  "questions": [
+    {
+      "id": "class3-maths-mul-001",
+      "type": "mcq",
+      "question": "What is 6 × 4?",
+      "options": ["20", "24", "28", "30"],
+      "answer": "24",
+      "difficulty": "easy"
+    }
+  ]
 }
 ```
 
-A downloadable file with a **working example of all 11 supported types** —
-already tested against the app's own import checker — is available:
-`sample-all-question-types.json` (ask for it again any time). Quick
-reference for each type's shape:
+### ⚙️ Step 3 — Generate the manifest
 
-```jsonc
-// mcq / choose_answer / odd_one_out — plain options
-{ "id": "q1", "type": "mcq", "question": "2 + 2 = ?",
-  "options": ["3","4","5","6"], "answer": "4", "difficulty": "easy" }
+- Give every question a unique `id`.
+- Keep the `class` value consistent with its folder.
+- Use a subject name recognised by the app.
+- From the project root, run:
 
-// true_false — answer is a boolean
-{ "id": "q2", "type": "true_false", "question": "A week has 7 days.",
-  "answer": true, "difficulty": "easy" }
-
-// yes_no — answer is the string "Yes" or "No"
-{ "id": "q3", "type": "yes_no", "question": "Is 10 even?",
-  "answer": "Yes", "difficulty": "easy" }
-
-// image_based / image_mcq — one image + plain options
-{ "id": "q4", "type": "image_based", "question": "What time is shown?",
-  "image": "assets/images/maths/clocks/clock-0300.svg",
-  "options": ["2:00","3:00","4:00"], "answer": "3:00", "difficulty": "easy" }
-
-// identify_picture — options can each carry their own image
-// (mix plain strings and image options freely)
-{ "id": "q5", "type": "identify_picture", "question": "Which one is the elephant?",
-  "options": [
-    { "answer": "Elephant", "label": "Elephant", "image": "assets/images/hindi/pictures/elephant.svg" },
-    { "answer": "Horse", "label": "Horse", "image": "assets/images/hindi/pictures/horse.svg" },
-    "Lion"
-  ], "answer": "Elephant", "difficulty": "easy" }
-
-// match — pairs, no "answer" field needed
-{ "id": "q6", "type": "match", "question": "Match the shape to its sides.",
-  "pairs": [ { "left": "Triangle", "right": "3" }, { "left": "Square", "right": "4" } ],
-  "difficulty": "medium" }
-
-// drag_drop — "target" can optionally show a picture instead of plain text
-{ "id": "q7", "type": "drag_drop", "question": "Drag each item to its picture.",
-  "pairs": [ { "drag": "1/2", "target": "Half", "image": "assets/images/maths/fractions/half.svg" } ],
-  "difficulty": "medium" }
-
-// arrange_order — items + the correct order
-{ "id": "q8", "type": "arrange_order", "question": "Smallest to largest.",
-  "items": ["45","12","78"], "answer": ["12","45","78"], "difficulty": "medium" }
+```bash
+node scripts/generate-manifest.js
 ```
 
-**Not supported:** typing-based answers (Fill in the Blank / One Word).
-Every question type is tap-to-answer.
+### 🚀 Step 4 — Publish your changes
 
-Importing a file: **Admin → Data Tools → Import**. It merges by `id` — a
-question with a new `id` is added, a matching existing `id` is updated.
+Commit and push the new JSON file and the updated `data/manifest.json` to GitHub.
+
+### 🤖 Automatic Manifest Generation
+
+The repository includes a GitHub Actions workflow at `.github/workflows/build-manifest.yml`. When a push changes a JSON file under `data/`, the workflow runs `scripts/generate-manifest.js` and commits an updated `data/manifest.json` when required.
+
+Make sure GitHub Actions are enabled and the workflow is allowed to write repository contents. You can also run the Node.js command manually.
+
+For more details, read [`data/README.md`](data/README.md).
 
 ---
 
-## Important things to know
+## 🖼️ Add an Image to a Question
 
-**Everything you do in the Admin Panel is saved to that one browser only.**
-This app has no server or database — Question Builder saves, JSON imports,
-Settings changes (including the school name), Catalog/Topic edits — all of
-it is written to that browser's `localStorage`, on that one device.
+1. Add the image file to a suitable folder under `assets/images/`, such as `assets/images/maths/` or `assets/images/hindi/`.
+2. Add its project-relative path to the question JSON:
 
-- A student (or you, on a different device/browser) will **not** see
-  anything you added this way. They'll only ever see what's actually in the
-  project's files on GitHub.
-- Clearing that browser's site data/cache will erase everything you added.
-- To make something appear for **everyone**, permanently, you must edit the
-  actual project files and push the change to GitHub:
-  - New/changed questions → add them to a file in `data/<subject>/` and list
-    it in `data/manifest.json`.
-  - Default school name shown to first-time visitors → edit the fallback
-    text in `index.html` (search for `PM SHRI KV 2 KGP`) and the `DEFAULTS`
-    object in `js/storage/settings-store.js`.
-  - Admin password → `config/admin-config.json`.
-- **Use Data Tools → Export / Backup regularly** and keep the downloaded
-  file somewhere safe — it's the only copy of anything you've built through
-  the Admin Panel that lives outside that one browser.
+   ```json
+   "image": "assets/images/maths/shapes/triangle.svg"
+   ```
+
+3. Commit the image and updated question data to GitHub.
+
+> 💡 The **Admin → Images** page can preview a local image and suggest a path. It does not upload the image to the deployed website. The actual image file must also be added to the project and deployed.
 
 ---
 
-## Project structure
-```
-index.html            Student app entry point (single page, js/app.js)
-admin/                 Admin Panel pages (login, dashboard, builder, etc.)
-js/app.js              Student game engine
-js/admin/              Admin Panel logic
-js/storage/            localStorage-backed data layer (settings, catalog, custom questions)
-js/data/loader.js      Loads and merges built-in + custom questions
-js/media/              Image validation/preload helpers
-data/                  Built-in question files + manifest.json + media-manifest.json
-config/                Reference-only JSON (admin login, defaults)
-styles/                CSS, one file per page/section
-assets/                Icons and question images
+## 💾 How Data Is Stored
+
+Flashcard Champ does **not** use a central server or database. Here is how the current project handles data:
+
+| Data | Where it is stored |
+|---|---|
+| Bundled question bank | JSON files in the GitHub repository |
+| Questions created in Admin | The browser's `localStorage` on that device |
+| Imported questions, catalogue edits and settings | The browser's `localStorage` on that device |
+| Exported backups | A file downloaded by the teacher |
+
+### 🔄 Moving Admin Content Between Devices
+
+- Use **Admin → Data Tools → Export** on the first device.
+- Use **Import** on the other device to bring in the exported questions.
+- Use **Backup** regularly and keep exported files somewhere safe.
+- Restoring a backup replaces the current local Admin data; importing questions merges them into existing content.
+- Clearing browser site data may remove locally saved Admin changes.
+
+> 📌 Admin changes made on one device do not automatically sync to another device or become part of the GitHub repository. To make content available to everyone, update the project files and push them to GitHub.
+
+---
+
+## 🗂️ Project Structure
+
+```text
+FC/
+├── index.html                  # Student-facing app entry point
+├── admin/                      # Admin login, dashboard and management pages
+├── pages/                      # Student game, topic, difficulty and result pages
+├── assets/                     # Logos, icons and learning images
+├── config/                     # Public app, school, theme and Admin settings
+├── data/                       # Class-wise question JSON files and manifests
+├── js/
+│   ├── app.js                  # Student app navigation and game flow
+│   ├── admin/                  # Admin Panel functionality
+│   ├── data/                   # Question and topic loading
+│   ├── game/                   # Game logic and question rendering
+│   ├── media/                  # Image and sound helpers
+│   └── storage/                # Browser localStorage data layer
+├── styles/                     # Student, game and Admin stylesheets
+├── scripts/                    # Utility scripts, including manifest generation
+├── sample-all-question-types.json
+├── IMPORT-QUESTIONS-GUIDE.md
+├── manifest.json
+└── .nojekyll
 ```
 
 ---
 
-## Development history
-<details>
-<summary>Phase-by-phase build notes (click to expand)</summary>
+## 🧰 Built With
 
-- **Phase 3 Fixed** — Single non-module `js/app.js` entry point so the home
-  screen never disappears if ES-module loading fails.
-- **Phase 4** — Manifest-driven question loading, basic JSON validation.
-- **Phase 5** — Arrange Order fixes, image manager utilities, click-to-enlarge,
-  broken-image fallback.
-- **Phase 6** — Admin Login foundation, Admin Dashboard shell.
-- **Phase 7** — Real Question Builder for all question types, live preview.
-- **Phase 8** — Working Drag & Drop (desktop + touch), Question Library.
-- **Phase 9** — JSON Import/Export, Backup/Restore, Topic Manager.
-- **Phase 10 (+ 4 follow-up fixes)** — Dynamic Class/Subject catalog wired
-  through every admin page and the student pickers.
-- **Phase 11** — Admin Settings: branding, footer, game rules, theme.
-- **Phase 12 — Final release** — PWA manifest + offline service worker,
-  mobile/accessibility polish, admin session hardening.
-- **Phase 13 — GitHub Pages release**
-  - Removed the offline service worker and its cache (a plain static site
-    now); added `.nojekyll` for GitHub Pages.
-  - Removed the two typing-based question types (Fill in the Blank, One
-    Word) everywhere — game, Builder, Library, import validator. The 13
-    built-in questions that used them were converted to multiple choice
-    with the same content.
-  - Finished image support across every question type: `image_mcq` is now
-    buildable in the Question Builder, every type can carry an optional
-    image, options can carry their own image, and Drag & Drop targets can
-    use a picture.
-  - Added the **Admin → Images** page (previously a "Coming next"
-    placeholder): usage gallery with broken-link checking, asset library
-    browser, copy-path buttons, and a local file-preview tool.
-  - Corrected a stale `data/media-manifest.json` that had drifted out of
-    sync with the actual `assets/images` folder.
-  - Added Google's "Baloo 2" — a rounded, playful font covering both
-    English and Hindi — across the student-facing pages only.
-  - Minor fixes: a missing status element on the Topics admin page, and a
-    stray-object bug in the Question Builder's "+ Add Pair" button.
+| Technology | Purpose |
+|---|---|
+| 🧱 **HTML5** | Page structure |
+| 🎨 **CSS3** | Responsive layout, themes and visual styling |
+| ⚡ **Vanilla JavaScript** | App flow, question rendering and Admin tools |
+| 🗃️ **JSON** | Question bank, manifests and configuration |
+| 💾 **Browser Local Storage** | Device-local Admin settings and custom content |
+| 🌐 **GitHub Pages** | Static website hosting |
+| 🤖 **GitHub Actions + Node.js** | Automatic question manifest generation |
 
-</details>
+**No database, application server, npm installation or build pipeline is required for normal use.**
+
+---
+
+## ⚠️ Current Limitations
+
+To understand the current project clearly, please keep these points in mind:
+
+- ☁️ No cloud database or automatic cross-device synchronisation.
+- 🔐 Admin login is not suitable for protecting private or sensitive information.
+- 📤 Teacher-created content remains local until it is exported or manually added to the repository.
+- 🖼️ The Admin image preview does not upload files to the deployed website.
+- 📈 The game provides session results, but it does not currently include a central student-progress dashboard or permanent school-wide student record system.
+- 📵 Offline use is not guaranteed; the current project does not include an offline service worker.
+
+---
+
+## 📚 Helpful Guides
+
+- 📘 [Question Data Guide](data/README.md)
+- 📥 [Import Questions Guide](IMPORT-QUESTIONS-GUIDE.md)
+- 🧩 [Supported Question Type Examples](sample-all-question-types.json)
+
+---
+
+<div align="center">
+
+## 🌈 Learning Through Practice
+
+### **Learn a little. Practise often. Celebrate every improvement!** 🎉
+
+Made to make classroom revision more engaging, visual and interactive — **one question at a time.** 💡
+
+**🏆 Flashcard Champ — Every question is a new chance to shine!**
+
+---
+
+### 👨‍💻 Project Creator & Developer
+
+**THEDARKGEEKDC**  
+**Mr DK Chaudhary**
+
+*Concept, design and development of Flashcard Champ.*
+
+</div>
