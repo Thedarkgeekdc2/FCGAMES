@@ -124,8 +124,8 @@ Flashcard Champ is a **static web project**. No npm installation or build comman
 Download the repository or clone it:
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/Thedarkgeekdc2/FCGAMES.git
+cd FCGAMES
 ```
 
 ### 2️⃣ Start a local web server
